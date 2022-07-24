@@ -1,14 +1,14 @@
 import {NgModule} from '@angular/core';
 import {RouterModule, Routes} from '@angular/router';
-import {ConnexionComponent} from "./app/connexion/connexion.component";
-import {InscriptionComponent} from "./app/inscription/inscription.component";
-//import {HomeComponent} from './components/home/home.component';
+import {ConnexionUserComponent} from "./app/connexion-user/connexion-user.component";
+import {SubscribeUserComponent} from "./app/subscribe-user/subscribe-user.component";
+
 
 
 const routes: Routes = [
-  {path: 'connexion', component: ConnexionComponent},
-  {path: '', redirectTo: 'connexion', pathMatch: 'full'},
-  {path: 'subscribe', component: InscriptionComponent},
+  {path: 'login', component: ConnexionUserComponent},
+  {path: '', redirectTo: 'login', pathMatch: 'full'},
+  {path: 'subscribe', component: SubscribeUserComponent},
 ];
 
 @NgModule({

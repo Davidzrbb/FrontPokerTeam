@@ -1,10 +1,4 @@
 /* BASIC */
-$primary: #98daff;
-@import "bootstrap";
-
-.primary--text {
-  color: white !important;
-}
 
 html {
   background-color: #56baed;
@@ -117,7 +111,7 @@ input[type=button]:active, input[type=submit]:active, input[type=reset]:active {
   transform: scale(0.95);
 }
 
-input[type=text],select {
+input[type=text] {
   background-color: #f6f6f6;
   border: none;
   color: #0d0d0d;
@@ -138,23 +132,15 @@ input[type=text],select {
   border-radius: 5px 5px 5px 5px;
 }
 
-input[type=text]:focus, select:focus {
+input[type=text]:focus {
   background-color: #fff;
   border-bottom: 2px solid #5fbae9;
 }
 
-input[type=text]::placeholder, select::placeholder {
+input[type=text]::placeholder {
   color: #cccccc;
 }
 
-.btn.active {
-  background-color: #5fbae9 !important;
-}
-
-.btn-primary {
-  color: white !important;
-  border-color: white !important;
-}
 
 input[type=password] {
   background-color: #f6f6f6;
@@ -311,6 +297,7 @@ input[type=password]::placeholder {
   width: 100%;
 }
 
+
 /* OTHERS */
 
 *:focus {
@@ -321,9 +308,6 @@ input[type=password]::placeholder {
   width: 60%;
 }
 
-.name-lastname {
-  width: 87%
-}
 .size-wrapper {
   width: 50%;
   @media (max-width: 768px) {

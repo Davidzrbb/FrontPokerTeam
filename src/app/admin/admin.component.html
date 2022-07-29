@@ -1,0 +1,101 @@
+<br>
+<br>
+<div class="w-100 d-flex flex-row justify-content-evenly flex-wrap">
+  <input type="submit" value="Demande de présence" (click)="displayUpdatePresence()">
+  <input type="submit" value="Extraire présence" (click)="displayExtractPresence()">
+</div>
+<div *ngIf="displayUpdatePresenceBool">
+  <div class="wrapper fadeInDown">
+    <div id="formContent" class="size-wrapper" style="overflow-x: auto">
+      <p *ngIf="returnError">
+        <ngb-alert [dismissible]="true" (closed)="closeAlert()">
+          <strong>Attention !</strong> {{returnMessage}}.
+        </ngb-alert>
+      </p>
+      <p *ngIf="returnSuccess">
+        <ngb-alert [type]='success' (closed)="closeAlert()">
+          <strong>Merci !</strong> {{returnMessage}}.
+        </ngb-alert>
+      </p>
+      <br>
+      <div class="fadeIn first">
+        <h3>Demande de présence</h3>
+        <br>
+      </div>
+      <div class="fadeIn first">
+        <table class="table table-striped">
+          <thead>
+          <tr>
+            <th scope="col">Prénom</th>
+            <th scope="col">Nom</th>
+            <th scope="col">Promo</th>
+            <th scope="col">Date</th>
+          </tr>
+          </thead>
+          <tbody>
+          <tr *ngFor="let pres of adminPresence; index as i">
+            <td style="vertical-align:middle;">{{pres.name}}</td>
+            <td style="vertical-align:middle;">{{pres.lastname}}</td>
+            <td style="vertical-align:middle;">{{pres.promo}}</td>
+            <td style="vertical-align:middle;">{{ pres.dayPresence | date : 'dd/MM/yyyy' }}</td>
+            <td style="vertical-align:middle;">
+              <button type="button" class="btn btn-success" (click)="updatePresence(1,pres.idPresence)">Valider</button>
+            </td>
+            <td style="vertical-align:middle;">
+              <button type="button" class="btn btn-danger" style="margin: 10%"
+                      (click)="updatePresence(2,pres.idPresence)">Refuser
+              </button>
+            </td>
+          </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+</div>
+<div *ngIf="displayExtractPresenceBool">
+  <div class="wrapper fadeInDown">
+    <div id="formContent" class="size-wrapper" style="overflow-x: auto">
+      <p *ngIf="returnError">
+        <ngb-alert [dismissible]="true" (closed)="closeAlert()">
+          <strong>Attention !</strong> {{returnMessage}}.
+        </ngb-alert>
+      </p>
+      <p *ngIf="returnSuccess">
+        <ngb-alert [type]='success' (closed)="closeAlert()">
+          <strong>Merci !</strong> {{returnMessage}}.
+        </ngb-alert>
+      </p>
+      <br>
+      <div class="fadeIn first">
+        <h3>Présence validée</h3>
+        <br>
+      </div>
+      <div class="fadeIn first">
+        <table class="table table-striped">
+          <thead>
+          <tr>
+            <th scope="col">Prénom</th>
+            <th scope="col">Nom</th>
+            <th scope="col">Promo</th>
+            <th scope="col">Open</th>
+          </tr>
+          </thead>
+          <tbody>
+          <tr *ngFor="let pres of adminPresenceValidate; index as i">
+            <td style="vertical-align:middle;">{{pres.name}}</td>
+            <td style="vertical-align:middle;">{{pres.lastname}}</td>
+            <td style="vertical-align:middle;">{{pres.promo}}</td>
+            <td style="vertical-align:middle;">{{pres.open}}</td>
+          </tr>
+          </tbody>
+        </table>
+        <div class="w-100; text-center">
+          <input type="submit" value="Extraire csv" (click)="extractCsv()">
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+

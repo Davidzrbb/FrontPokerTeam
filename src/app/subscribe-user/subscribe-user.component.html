@@ -1,8 +1,8 @@
 <div class="wrapper fadeInDown">
-  <div id="formContent">
+  <div id="formContent" class="size-wrapper">
     <p *ngIf="returnError">
       <ngb-alert [dismissible]="true" (closed)="closeAlert()">
-        <strong>Attention !</strong> Erreur inscription.
+        <strong>Attention !</strong> {{returnMessage}}.
       </ngb-alert>
     </p>
     <br>
@@ -15,21 +15,21 @@
         <input type="text" #name class="fadeIn second " placeholder="Prenom">
         <input type="text" #lastname class="fadeIn second" placeholder="Nom">
       </div>
-      <input type="text" #login class="fadeIn second" placeholder="Pseudo">
+      <select #promo class="fadeIn second">
+        <option value="">Promo</option>
+        <option value="1I">1I</option>
+        <option value="1A">1A</option>
+        <option value="2I">2I</option>
+        <option value="2A">2A</option>
+        <option value="3A">3A</option>
+        <option value="4A">4A</option>
+        <option value="5A">5A</option>
+      </select>
+      <input type="text" #login class="fadeIn second" placeholder="Login">
       <input type="password" #password class="fadeIn third" placeholder="Mot de passe">
       <br><br>
-      <div class="btn-group fadeIn fourth" role="group" ngbRadioGroup name="radioBasic" [ngModel]="role">
-        <label ngbButtonLabel class="btn-primary">
-          <input ngbButton type="radio" class="btn-check" value="parents" #client (click)="modifyRole(client.value)">
-          Parents
-        </label>
-        <label ngbButtonLabel class="btn-primary ">
-          <input ngbButton type="radio" class="btn-check " value="babysitter" #livreur
-                 (click)="modifyRole(livreur.value)"> Babysitter
-        </label>
-      </div>
-      <br><br>
-      <input type="submit" class="fadeIn fourth" value="Valider">
+      <input type="submit" class="fadeIn fourth" value="Valider"
+             (click)="subscribeUser(name.value,lastname.value,login.value,password.value,promo.value)">
     </div>
 
     <div id="formFooter">

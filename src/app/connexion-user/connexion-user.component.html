@@ -1,8 +1,8 @@
 <div class="wrapper fadeInDown">
-  <div id="formContent">
+  <div id="formContent" class="size-wrapper">
     <p *ngIf="returnError">
       <ngb-alert [dismissible]="true" (closed)="closeAlert()">
-        <strong>Attention !</strong> Pseudo ou mot de passe incorrect.
+        <strong>Attention !</strong> {{returnMessage}}.
       </ngb-alert>
     </p>
     <br>
@@ -10,7 +10,7 @@
       <h3>Connexion</h3>
       <br>
     </div>
-    <div>
+    <div class="fadeIn first">
       <input type="text" #login class="fadeIn second" placeholder="Pseudo">
       <input type="password" #password class="fadeIn third" placeholder="Mot de passe">
       <br><br>
